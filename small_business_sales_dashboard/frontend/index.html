@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Small Business Sales Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">SMALL BUSINESS</p>
+      <h1>Sales Dashboard</h1>
+    </div>
+    <span class="status">MVP starter</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Overview</h2>
+      <p>Track products and sales from one simple dashboard.</p>
+    </section>
+
+    <section class="stats" aria-label="Sales summary">
+      <article class="stat-card">
+        <p>Total revenue</p>
+        <strong id="totalRevenue">₹0.00</strong>
+      </article>
+      <article class="stat-card">
+        <p>Sales recorded</p>
+        <strong id="salesCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <p>Products</p>
+        <strong id="productCount">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Add a product</h2>
+      <form id="productForm" class="form-row">
+        <label>
+          Product name
+          <input id="productName" name="name" maxlength="100" required placeholder="e.g. Notebook">
+        </label>
+        <label>
+          Selling price (₹)
+          <input id="productPrice" name="price" type="number" min="0.01" step="0.01" required placeholder="e.g. 50">
+        </label>
+        <button type="submit">Add product</button>
+      </form>
+      <p id="productMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Products</h2>
+          <p>Products saved in the backend database.</p>
+        </div>
+        <button id="refreshButton" class="secondary" type="button">Refresh data</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Product</th><th>Price</th><th>Actions</th></tr></thead>
+          <tbody id="productsTable">
+            <tr><td colspan="3">Loading products…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Record a sale</h2>
+      <form id="saleForm" class="form-row">
+        <label>
+          Product
+          <select id="saleProduct" required>
+            <option value="">Load products first</option>
+          </select>
+        </label>
+        <label>
+          Quantity
+          <input id="saleQuantity" type="number" min="1" step="1" required value="1">
+        </label>
+        <button type="submit">Record sale</button>
+      </form>
+      <p id="saleMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Sales history</h2>
+          <p>Search by product name.</p>
+        </div>
+        <input id="salesSearch" class="search" type="search" placeholder="Search sales…" aria-label="Search sales">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Product</th><th>Quantity</th><th>Total</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody id="salesTable">
+            <tr><td colspan="5">Loading sales…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <p id="globalMessage" class="message" role="status"></p>
+  </main>
+
+  <footer><p>Small Business Sales Dashboard · Student MVP starter</p></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
